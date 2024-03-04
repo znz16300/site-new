@@ -130,7 +130,7 @@ teachList.addEventListener("change", () => {
   const chbox = document.createElement("input");
   chbox.setAttribute("type", "checkbox");
   chbox.setAttribute("id", "checkbox");
-  chbox.checked = true;
+  chbox.checked = false;
 
   const chboxLabel = document.createElement("label");
   chboxLabel.setAttribute("for", "checkbox");
