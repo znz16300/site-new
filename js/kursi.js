@@ -130,7 +130,7 @@ teachList.addEventListener("change", () => {
   const chbox = document.createElement("input");
   chbox.setAttribute("type", "checkbox");
   chbox.setAttribute("id", "checkbox");
-  chbox.checked = false;
+  chbox.checked = true;
 
   const chboxLabel = document.createElement("label");
   chboxLabel.setAttribute("for", "checkbox");
@@ -206,9 +206,10 @@ teachList.addEventListener("change", () => {
         r[COL_ATEST_YEAR] = '2000';
       }
       let [day, month, year] = r[COL_DATE_DOCUM].split('.').map(Number);
-      let dateKursi = new Date(year, month - 1, day);
-      let dateAtest = new Date(r[COL_ATEST_YEAR], 3, 1);
-      if (dateKursi < dateAtest){
+      const dateKursi = new Date(year, month - 1, day);
+      const dateAtest = new Date(r[COL_ATEST_YEAR], 3, 1);
+      const dateNow = new Date();
+      if (dateKursi < dateAtest && dateNow > dateAtest){
         row.classList.add('gray_row')
         row.classList.add('tr_hide')
       } 
@@ -292,14 +293,10 @@ teachList.addEventListener("change", () => {
     const s = shevchenko.inGenitive(fullNameToParts(teachCombo.value))
     const teachRod = s.lastName + " " + s.firstName + " " + s.middleName
     if (sp.length > 0){
-      // console.log(sp);
       const dat = new Date;
-      // console.log(formatDate(dat));
       const context = {
         'teacher':teachRod,
-        // 'teacher':teachCombo.value,
         'teacherINIC':fullNameToInic(teachCombo.value),
-        // 'kursi': sp,
         'golova': golova,
         'zaklad': zaklad,
         'date': formatDate(dat),
@@ -399,7 +396,6 @@ let readKursi = () => {
   $.getJSON(url + "getmultiblock/" + key, function (data) {
     glData = data;
     let dat = glData[0].data;
-    // console.log(dat);
     for (r of dat) {
       teachers.add(r[COL_TEACHER]);
     }
