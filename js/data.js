@@ -187,7 +187,7 @@ const pets = [
     {
     id: "14",
     name: "Кабінет безпеки",
-    img: "./assets/images/biblioteka.jpg",
+    img: "./assets/images/kab_zdor.jpg",
     type: "Завідувачка бібліотекою",
     breed: "Савченко А.І.",
     description:
