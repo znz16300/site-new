@@ -185,7 +185,7 @@ const pets = [
     parasites: ["none"],
   },
     {
-    id: "13",
+    id: "14",
     name: "Кабінет безпеки",
     img: "./assets/images/biblioteka.jpg",
     type: "Завідувачка бібліотекою",
